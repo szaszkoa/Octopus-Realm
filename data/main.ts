@@ -9,5 +9,5 @@ let gameData: any = {
 
 function octopusHunt(): void {
   gameData.shellfish += gameData.shellfishPerClick;
-  document.getElementById('shelllfishAvailable').innerHTML = `${gameData.shellfish} shellfish collected`
+  document.getElementById('shellfishAvailable').innerHTML = `${gameData.shellfish} shellfish collected`
 }
