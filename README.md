@@ -25,25 +25,35 @@ General end-goal is to help Octopi achieve total world hegemony, by the means of
   - TODO: clean up UI and replace bit buttons with "+" buttons. maybe adding +10 buttons later.
   - TODO: start to implement housing limit for octopi, and create structures. Figure out creation methods for structures.
   - TODO: think about adding visual feedback on progress.
-
+  - TODO: think about hower information
 ## User stories, ideas, chain of tought
 
 ### resources of the game:
 
   - Resources for octopus creation
     - shellfish
-    - crustaceans
-    - sea-worms
-    - cephalopods
+    - crustacean
+    - sea-worm
+    - cephalopod
 
-  - Resources for structure creation
+  - Resources for structure creation - to be implemented
     - corall beads
     - corall rock
     - glass bottle
 
   - different octopus classes
     - octopus
+      - cost: 100 shellfist + 10 for every octopus already owned
+      - generates: 1 shellfish/s
+    - squid
+      - cost: 10.000 shellfish + 100 for every squid already owned
+      - generates: 10 shellfish/s, 1 crustean/min
     - giant octopus
+      - cost: 100.000 shellfish, 1000 crustean +10% of original price/giant octopus
+      - generates: 100 shellfish, 1 seaworm/5min
+    - colossal squid
+      - cost: 1.000.000 shellfish, 10.000 crustean, 100 seaworm + 10% of original price/colossal squid owned
+      - generates: 1000 shellfish/5s, 10 seaworm/5min, 1cephalopod/15min
 
 ### UI idea
 
