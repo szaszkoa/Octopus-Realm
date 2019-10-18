@@ -1,4 +1,6 @@
 'use strict';
+/**
+
 var gameData = {
     shellfish: 0,
     shellfishPerClick: 10 // set to 10 to avoid breaking fingers when testing. original value is 1
@@ -29,3 +31,5 @@ function breedOctopus() {
 var mainGameLoop = window.setInterval(function () {
     resourceModifiers.octopusPopulation == 1 ? undefined : sendOctopusToHunt();
 }, 1000);
+
+*/

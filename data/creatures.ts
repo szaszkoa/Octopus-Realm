@@ -1,16 +1,33 @@
 'use strict';
 
+export let gameData: any = {
+  shellfish: 1001,
+  crustean: 0,
+  seaWorm: 0,
+
+  octopusCount: 0,
+  squidCount: 0,
+  giantOctopusCount: 0,
+  colossalSquidCount: 0,
+
+  shellfishPerClick: 10,
+
+  shellfishGen: 0,
+  crusteanGen: 0,
+  seaWormGen: 0
+}
+
 abstract class Cephalopod {
   // price attributes
-  private _priceShellfish: number;
-  private _priceCrustean: number;
-  private _priceSeaWorm: number;
+  protected _priceShellfish: number;
+  protected _priceCrustean: number;
+  protected _priceSeaWorm: number;
   // resource generation attributes
-  private _genShellfish: number;
-  private _genCrustean: number;
-  private _genSeaWorm: number;
-
-  private _animalName: string;
+  protected _genShellfish: number;
+  protected _genCrustean: number;
+  protected _genSeaWorm: number;
+  // animal name
+  protected _animalName: string;
 
   constructor(name: string, priceShellfish: number, priceCrustean: number, priceSeaWorm: number, genShellfish: number, genCrustean: number, genSeaWorm: number) {
     this._animalName = name;
@@ -24,41 +41,74 @@ abstract class Cephalopod {
     this._genSeaWorm = genSeaWorm;
   }
 
-  // create functions to icrease the price, and create the arrays storing the animals
-
-  breed(newAnimal: any): void{
-    
-  }
 }
 
-class Octopus extends Cephalopod {
+export class Octopus extends Cephalopod {
 
   constructor() {
     super('Octopus', 100, 0, 0, 1, 0, 0);
   }
 
-
-
+  public breedUnit(): any {
+    if(gameData.shellfish>=this._priceShellfish){
+      gameData.octopusCount += 1;
+      gameData.shellfishGen += this._genShellfish;
+      gameData.shellfish -= this._priceShellfish;
+    }
+  }
 }
 
-class Squid extends Cephalopod {
+export class Squid extends Cephalopod {
 
   constructor() {
     super('Squid', 10000, 0, 0, 10, 1, 0)
   }
 
+  protected breedUnit(): void {
+    if(gameData.shellfish >= this._priceShellfish){
+      gameData.squidCount += 1;
+      gameData.shellfishGen += this._genShellfish;
+      gameData.cruesteanGen += this._genCrustean;
+      gameData.shellfish -= this._priceShellfish;
+    }
+  }
 }
 
-class GiantOctopus extends Cephalopod {
+export class GiantOctopus extends Cephalopod {
 
   constructor() {
-    super('Giant Octopus', 100000,100,0,100,10,1)
+    super('Giant Octopus', 100000, 100, 0, 100, 10, 1)
   }
+
+  protected breedUnit(): void {
+    if(gameData.shellfish >= this._priceShellfish && gameData.crustean >= this._priceCrustean){
+      gameData.giantOctopusCount += 1;
+      gameData.shellfishGen += this._genShellfish;
+      gameData.cruesteanGen += this._genCrustean;
+      gameData.seaWormGen += this._genSeaWorm;
+      gameData.shellfish -= this._priceShellfish;
+      gameData.crustean -= this._priceCrustean;
+    }
+  }
+
 }
 
-class ColossalSquid extends Cephalopod{
+export class ColossalSquid extends Cephalopod {
 
-  constructor(){
-    super('Colossal Squid', 1000000, 10000,100,1000,100,10)
+  constructor() {
+    super('Colossal Squid', 1000000, 10000, 100, 1000, 100, 10)
+
   }
+  protected breedUnit(): void {
+    if (gameData.shellfish >= this._priceShellfish && gameData.crustean >= this._priceCrustean && gameData.seaWorm >= this._priceSeaWorm) {
+      gameData.colossalSquidCount += 1;
+      gameData.shellfishGen += this._genShellfish
+      gameData.cruesteanGen += this._genCrustean;
+      gameData.seaWormGen += this._genSeaWorm;
+      gameData.shellfish -= this._priceShellfish;
+      gameData.crustean -= this._priceCrustean;
+      gameData.seaWorm -= this._priceSeaWorm;
+    }
+  }
+
 }

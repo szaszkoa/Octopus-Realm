@@ -1,10 +1,20 @@
 'use strict';
 
-let gameData: any = {
-  shellfish: 0,
-  shellfishPerClick: 10 // set to 10 to avoid breaking fingers when testing. original value is 1
-  // shellfishToBeGenerated
-}
+import {gameData, Octopus, Squid, GiantOctopus, ColossalSquid } from './creatures';
+
+
+let octopus = new Octopus;
+let octopus2 = new Octopus;
+let octopus3 = new Octopus;
+
+console.log(octopus)
+console.log(octopus.breedUnit());
+
+console.log(gameData)
+
+document.getElementById('shellfish').innerHTML = `${gameData.shellfish} shellfish collected.`
+
+/*
 
 let resourceModifiers: any = {
   // shellfish per click modifier
@@ -16,7 +26,6 @@ let resourceModifiers: any = {
 // octopi hunting for shellfish
 function sendOctopusToHunt(): void {
   gameData.shellfish += resourceModifiers.octopusPopulation == 0 ? gameData.shellfishPerClick : gameData.shellfishPerClick * resourceModifiers.octopusPopulation;
-  document.getElementById('shellfishAvailable').innerHTML = `${gameData.shellfish} shellfish collected.`
 }
 
 // breeding octopi
@@ -39,7 +48,7 @@ let mainGameLoop: any = window.setInterval(() => {
 
 /** saving game to be added later
 
-//game loading 
+//game loading
 let saveGame: object = JSON.parse(localStorage.getItem('octopusRealm'))
 if (saveGame != null) {
   gameData = saveGame;
