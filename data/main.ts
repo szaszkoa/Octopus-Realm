@@ -1,18 +1,36 @@
 'use strict';
 
-import {gameData, Octopus, Squid, GiantOctopus, ColossalSquid } from './creatures';
+let gameData: any = {
+  shellfish: 100,
+  crustean: 0,
+  seaWorm: 0,
 
+  octopusCount: 0,
+  squidCount: 0,
+  giantOctopusCount: 0,
+  colossalSquidCount: 0,
 
-let octopus = new Octopus;
-let octopus2 = new Octopus;
-let octopus3 = new Octopus;
+  shellfishPerClick: 10,
 
-console.log(octopus)
-console.log(octopus.breedUnit());
+  shellfishGen: 0,
+  crusteanGen: 0,
+  seaWormGen: 0
+}
 
-console.log(gameData)
+function gatherShellfish(): void {
+  gameData.shellfish += 1;
+  document.getElementById('shellfish').innerHTML = `Shellfish: ${gameData.shellfish}`
+}
 
-document.getElementById('shellfish').innerHTML = `${gameData.shellfish} shellfish collected.`
+function breedOctopus(): void {
+  gameData.octopusCount += 1;
+  document.getElementById('octopusPopulation').innerHTML = `Octopuses: ${gameData.octopusCount}`
+}
+
+function breedSquid(): void {
+  gameData.squidCount += 1;
+  document.getElementById('squidPopulation').innerHTML = `Squids: ${gameData.squidCount}`
+}
 
 /*
 
@@ -26,6 +44,7 @@ let resourceModifiers: any = {
 // octopi hunting for shellfish
 function sendOctopusToHunt(): void {
   gameData.shellfish += resourceModifiers.octopusPopulation == 0 ? gameData.shellfishPerClick : gameData.shellfishPerClick * resourceModifiers.octopusPopulation;
+  document.getElementById('shellfishAvailable').innerHTML = `${gameData.shellfish} shellfish collected.`
 }
 
 // breeding octopi
