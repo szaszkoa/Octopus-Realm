@@ -3,19 +3,19 @@
 let gameData: any = {
   shellfish: 0,
   shellfishPerClick: 10 // set to 10 to avoid breaking fingers when testing. original value is 1
-
+  // shellfishToBeGenerated
 }
 
 let resourceModifiers: any = {
   // shellfish per click modifier
-  octopusPopulation: 1
+  octopusPopulation: 0
 
 }
 
 
 // octopi hunting for shellfish
 function sendOctopusToHunt(): void {
-  gameData.shellfish += resourceModifiers.octopusPopulation == 1 ? gameData.shellfishPerClick : gameData.shellfishPerClick * resourceModifiers.octopusPopulation;
+  gameData.shellfish += resourceModifiers.octopusPopulation == 0 ? gameData.shellfishPerClick : gameData.shellfishPerClick * resourceModifiers.octopusPopulation;
   document.getElementById('shellfishAvailable').innerHTML = `${gameData.shellfish} shellfish collected.`
 }
 
@@ -34,7 +34,7 @@ function breedOctopus(): any {
 
 // automatic resource generation
 let mainGameLoop: any = window.setInterval(() => {
-  resourceModifiers.octopusPopulation == 1 ? undefined : sendOctopusToHunt()
+  resourceModifiers.octopusPopulation == 0 ? undefined : sendOctopusToHunt()
 }, 1000)
 
 /** saving game to be added later
