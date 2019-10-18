@@ -17,19 +17,74 @@ let gameData: any = {
   seaWormGen: 0
 }
 
+// automatic resource generation
+let mainGameLoop: any = window.setInterval(() => {
+  gameData.shellfishGen == 0 ? undefined : autoLoop();
+}, 1000)
+
+function autoLoop(): void {
+  gameData.shellfish += gameData.shellfishGen;
+  document.getElementById('shellfish').innerHTML = `Shellfish: ${gameData.shellfish}`;
+  gameData.crustean += gameData.crusteanGen;
+  document.getElementById('crustean').innerHTML = `Crustean: ${gameData.crustean}`;
+  gameData.seaWorm += gameData.seaWormGen;
+  document.getElementById('seaWorm').innerHTML = `Sea Worm: ${gameData.seaWorm}`;
+}
+
 function gatherShellfish(): void {
   gameData.shellfish += 1;
   document.getElementById('shellfish').innerHTML = `Shellfish: ${gameData.shellfish}`
 }
 
 function breedOctopus(): void {
-  gameData.octopusCount += 1;
-  document.getElementById('octopusPopulation').innerHTML = `Octopuses: ${gameData.octopusCount}`
+  if (gameData.shellfish >= octopusData.shellfishPrice) {
+    gameData.shellfish -= octopusData.shellfishPrice;
+    gameData.shellfishGen += octopusData.shellfishGen;
+    gameData.octopusCount += 1;
+    document.getElementById('octopusPopulation').innerHTML = `Octopuses: ${gameData.octopusCount}`
+    document.getElementById('shellfish').innerHTML = `Shellfish: ${gameData.shellfish}`
+  }
 }
 
 function breedSquid(): void {
-  gameData.squidCount += 1;
-  document.getElementById('squidPopulation').innerHTML = `Squids: ${gameData.squidCount}`
+  if (gameData.shellfish >= squidData.shellfishPrice) {
+    gameData.shellfish -= squidData.shellfishPrice;
+    gameData.shellfishGen += squidData.shellfishGen;
+    gameData.squidCount += 1;
+    document.getElementById('squidPopulation').innerHTML = `Squids: ${gameData.squidCount}`
+    document.getElementById('shellfish').innerHTML = `Shellfish: ${gameData.shellfish}`
+  }
+}
+
+
+let octopusData: any = {
+  shellfishPrice: 100,
+  shellfishGen: 1,
+}
+
+let squidData: any = {
+  shellfishPrice: 1000,
+  shellfishGen: 10,
+  crusteanGen: 1,
+
+}
+
+let giantOctopusData: any = {
+  shellfishPrice: 10000,
+  shellfishGen: 1000,
+  crusteanGen: 10,
+  seaWormGen: 1,
+}
+
+let colossalSquidData: any = {
+  shellfishPrice: 100000,
+  crusteanPrice: 10000,
+  seaWormPrice: 100,
+  shellfishGen: 1000,
+  crusteanGen: 100,
+  seaWormGen: 10
+  
+  
 }
 
 /*
@@ -60,10 +115,6 @@ function breedOctopus(): any {
   }
 }
 
-// automatic resource generation
-let mainGameLoop: any = window.setInterval(() => {
-  resourceModifiers.octopusPopulation == 0 ? undefined : sendOctopusToHunt()
-}, 1000)
 
 /** saving game to be added later
 

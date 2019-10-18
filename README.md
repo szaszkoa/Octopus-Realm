@@ -45,13 +45,13 @@ General end-goal is to help Octopi achieve total world hegemony, by the means of
       - cost: 100 shellfist + 10 for every octopus already owned
       - generates: 1 shellfish/s
     - squid
-      - cost: 10.000 shellfish + 100 for every squid already owned
+      - cost: 1000 shellfish + 100 for every squid already owned
       - generates: 10 shellfish/s, 1 crustean/min
     - giant octopus
-      - cost: 100.000 shellfish, 1000 crustean +10% of original price/giant octopus
+      - cost: 10.000 shellfish, 1000 crustean +10% of original price/giant octopus
       - generates: 100 shellfish, 10 csrustean/min, 1 seaworm/5min
     - colossal squid
-      - cost: 1.000.000 shellfish, 10.000 crustean, 100 seaworm + 10% of original price/colossal squid owned
+      - cost: 100.000 shellfish, 10.000 crustean, 100 seaworm + 10% of original price/colossal squid owned
       - generates: 1000 shellfish/5s, 100 crustean/min, 10 seaworm/5min
 
 ### UI idea

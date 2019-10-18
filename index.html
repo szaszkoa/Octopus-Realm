@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> Octopus Realm </title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="data/main.js" charset="utf-8" type="text/javascript"></script> 
-  </head>
-  <body>
-    <header>
-      <h1>Octopus Realm</h1>
-      <p>Prepare for cephalopod hegemony</p>
-    </header>
-    <aside>
-      <div>
-        <h2>Resources</h2>
-        <p id="shellfish">Shellfish: 0</p>
-        <p id="crustean">Crustean: 0</p>
-        <p id="seaWorm">Sea Worm: 0</p>
-      </div>
-      <br>
-      <div>
-        <h2>Realm</h2>
-        <p id="octopusPopulation">Octopuses: 0</p>
-        <p id="squidPopulation">Squids: 0</p>
-        <p id="giantOctopusPopulation">Giant Octopuses: 0</p>
-        <p id="colossalSquidPopulation">Colossal Squids: 0</p>
-      </div>
-    </aside>
-    <main>
+
+<head>
+  <meta charset="utf-8">
+  <title> Octopus Realm </title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="data/main.js" charset="utf-8" type="text/javascript"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Octopus Realm</h1>
+    <p>Prepare for cephalopod hegemony</p>
+  </header>
+  <aside>
+    <div>
+      <h2>Resources</h2>
+      <span id="shellfish">Shellfish: 0</span>
+      <p id="crustean">Crustean: 0</p>
+      <p id="seaWorm">Sea Worm: 0</p>
+    </div>
+    <br>
+    <div>
+      <h2>Realm</h2>
+      <p id="octopusPopulation">Octopuses: 0</p>
+      <p id="squidPopulation">Squids: 0</p>
+      <p id="giantOctopusPopulation">Giant Octopuses: 0</p>
+      <p id="colossalSquidPopulation">Colossal Squids: 0</p>
+    </div>
+  </aside>
+  <main>
+    <div>
       <h2>Actions</h2>
       <button onclick="gatherShellfish()">Gather Shellfish</button>
+    </div>
+    <br>
+      <h2>Units</h2>
+    <div>
       <button onclick="breedOctopus()">Breed Octopus</button>
-    </main>
-  </body>
+      <button onclick="breedSquid()">Breed Squid</button>
+      <button onclick="breedGiantOctopus()">Breed Giant Octopus</button>
+      <button onclick="breedColossalSquid()">Breed Colossal Squid</button>
+    </div>
+  </main>
+</body>
+
 </html>
